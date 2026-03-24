@@ -6,7 +6,11 @@ pub enum DataKey {
     Admin,                          // -> Address
     Project(u64),                   // -> ProjectData
     ProjectBalance(u64, Address),   // (project_id, token) -> i128
-    MilestoneApproved(u64),         // project_id -> bool
+    MilestoneApproved(u64, u32),     // (project_id, milestone_id) -> bool
+    MilestoneVote(u64, u32, Address), // (project_id, milestone_id, voter) -> bool
+    MilestoneVotesFor(u64, u32),     // (project_id, milestone_id) -> i128
+    MilestoneVotesAgainst(u64, u32), // (project_id, milestone_id) -> i128
+    MilestoneVoteWindow(u64, u32),   // (project_id, milestone_id) -> u64 (timestamp)
     NextProjectId,                  // -> u64
     Contribution(u64, Address),     // (project_id, contributor) -> i128
     ContributorCount(u64),          // project_id -> u32
