@@ -65,23 +65,24 @@ export function StellarProvider({ children }: { children: ReactNode }) {
     setStatus("connecting");
 
     try {
-      const { isConnected } = await freighterIsConnected();
-
-      if (!isConnected) {
-        throw new Error(
-          "Freighter wallet extension not detected. Please install it from freighter.app"
-        );
-      }
-
       const result = await requestAccess();
 
       if (result.error) {
+        if (
+          result.error.includes("user") ||
+          result.error.includes("denied") ||
+          result.error.includes("reject")
+        ) {
+          throw new Error(
+            "Connection was rejected or no account is available."
+          );
+        }
         throw new Error(result.error);
       }
 
       if (!result.address) {
         throw new Error(
-          "Connection was rejected or no account is available."
+          "Freighter wallet extension not detected. Please install it from freighter.app"
         );
       }
 
