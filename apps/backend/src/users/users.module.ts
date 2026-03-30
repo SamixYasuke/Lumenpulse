@@ -5,7 +5,7 @@ import { UsersController } from './users.controller';
 import { User } from './entities/user.entity';
 import { StellarAccount } from './entities/stellar-account.entity';
 import { StellarService } from '../stellar/stellar.service';
-import { UploadModule } from 'src/upload/upload.module';
+import { UploadModule } from '../upload/upload.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, StellarAccount]), UploadModule],

@@ -13,7 +13,7 @@ import { StellarService } from '../stellar/stellar.service';
 import { LinkStellarAccountDto } from './dto/link-stellar-account.dto';
 import { StellarAccountResponseDto } from './dto/stellar-account-response.dto';
 import { UpdateStellarAccountLabelDto } from './dto/update-stellar-account-label.dto';
-import { UploadService } from 'src/upload/upload.service';
+import { UploadService } from '../upload/upload.service';
 import crypto from 'crypto';
 
 @Injectable()

@@ -38,7 +38,7 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ProfileResponseDto } from './dto/profile-response.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { SharpPipe } from 'src/common/pipes/sharp.pipe';
+import { SharpPipe } from '../common/pipes/sharp.pipe';
 
 // Unified Authenticated Request Interface
 interface RequestWithUser extends Request {
